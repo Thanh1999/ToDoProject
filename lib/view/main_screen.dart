@@ -102,6 +102,7 @@ class _MainScreenState extends State<MainScreen> {
           onChanged: (value) async {
             bool result =
                 await model.updateToDoList(list[index], value ?? false);
+            scaffoldMessKey.currentState?.hideCurrentSnackBar();
             if (result) {
               scaffoldMessKey.currentState?.showSnackBar(
                   SnackBar(content: Text("Save changed successfully")));
